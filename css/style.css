@@ -1,0 +1,60 @@
+
+body {
+	background-color: #f1f1f1;
+}
+
+.container {
+	pa dding-bottom: 20px;
+	margin-bottom: 40px;
+}
+
+/*------- Begin Header Section------- */
+#header {
+	margin-top: 20px;
+}
+
+.title {
+	margin-bottom: 30px;
+	font-siz e: 30px;
+	margin-bottom: 0;
+}
+#header p {
+	padding-left: 30px;
+	margin-bottom: 40px
+}
+/*---------- End Header Section----------- */
+
+/*--------- Start Main ----------- */
+#main {
+	displ ay: none;
+}
+
+#main h2 {
+	font-size: 15px;
+}
+
+#main h4 {
+	font-size: 10px;
+}
+
+.line, .expiration {
+	border-bottom: 1px solid black;
+	padding-bottom: 3px;
+}
+
+.btn-primary {
+	margin-top: 20px;
+}
+
+/*-------------- End Main -------------- */
+.confirmation {
+	display: none;
+}
+.confirmation h1 {
+	font-family: 'Pacifico', cursive;
+	font-weight: bold;
+	color: blue;
+	font-size: 100px;
+
+}
+

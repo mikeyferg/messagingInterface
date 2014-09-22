@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Swoopt Messaging</title>
+		<!-- Latest compiled and minified CSS -->
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/datepicker.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-clockpicker.min.css">
+		<!-- My stylesheet -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div class="container">
+			<header id="header" class="row">
+				<h1 class="title col-md-12"><img src="img/swooptLogo.png"/></h1>
+				<p>Messaging App</p>
+			</header><!-- #header -->
+			<div id="main">
+				<div class="row">
+					<h2>Device</h2>
+					<div class="device btn-group">
+						<button type="button" class="btn btn-default">iPhone</button>
+						<button type="button" class="btn btn-default">Android</button>
+						<button type="button" class="btn btn-default">Both</button>
+					</div>
+				</div> <!-- row -->
+
+				<div class="row line">
+					<h2>Message Type</h2>
+					<div class="category btn-group">
+						<button type="button" class="btn btn-default">Marketing</button>
+						<button type="button" class="btn btn-default">Update</button>
+					</div>
+				</div> <!-- row -->
+
+				<div class="row">
+					<div class="messageContents">
+						<h2>Message Contents</h2>
+						<input type="text" class="messageHeader form-control" placeholder="Header">
+						<textarea class="messageBody form-control" rows="3" placeholder="Body"></textarea>
+						<h2>Sound</h2>
+						<div class="sound btn-group">
+							<button type="button" class="btn btn-default">Yes</button>
+							<button type="button" class="btn btn-default">No</button>
+						</div>
+					</div>
+	    		</div>
+
+				<div class="linking row">
+					<h2>Destination</h2>
+					<div class="linkingDestinations">
+						<div class="links radio">
+					  		<label>
+					    		<input type="radio" name="optionsRadios" id="linkNone" value="none">None
+					  		</label>
+						</div>
+						<div class="links radio">
+					  		<label>
+					    		<input type="radio" name="optionsRadios" id="linkContest" value="contest">Contest
+					  		</label>
+						</div>
+						<div class="links radio">
+					  		<label>
+					    		<input type="radio" name="optionsRadios" id="linkPayment" value="addFunds">Add Funds
+					  		</label>
+						</div>
+						<div class="links radio">
+					  		<label>
+					    		<input type="radio" name="optionsRadios" id="linkRecruitPage" value="recruitPage">Recruit Page
+					  		</label>
+						</div>
+					</div><!-- linkingDestination -->
+					<input type="text" class="linkAddress form-control" placeholder="Contest URL" disabled>
+				</div><!-- linking -->
+				<div class="expiration row">
+					<h2>Expiration</h2>
+					<h4>Expiration Date</h4>
+					<input type="text" class="expirationDate datepicker" placeholder="Optional">
+					<h4>Expiration Time</h4>
+					<input type="text" class="time expirationTime clockpicker" placeholder="Optional">
+				</div>
+
+				<div class="row">
+					<h2>App Secret</h2>
+						<input type="text" class="appSecret form-control" placeholder="Shhhhhh">
+				</div>
+
+				<div class="row">
+					<div class="enter btn-group col-md-4 col-md-offset-4">
+						<button type="button" class="btn btn-primary btn-lg btn-block">Send Messages</button>
+					</div>
+				</div>
+		    </div> <!-- .main -->
+		    <div class="confirmation">
+		    	<div class="row">
+		    		<h1 class="col-md-4 col-md-offset-4">BOOM!</h1>
+		    	</div>
+		    </div>
+		</div><!-- #container -->
+	<script src="js/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="js/bootstrap-clockpicker.min.js"></script>
+	<script src="js/app2.js"></script>
+	</body>
+</html>
