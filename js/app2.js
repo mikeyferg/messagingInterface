@@ -7,11 +7,33 @@ $(document).ready(function($) {
 	    $(this).addClass("active").siblings().removeClass("active");
 	});
 
-	/* store user inputs on clicks or blurs */
-	$('.device').on('click', 'button', function() {
-		inputs[0] = $(this).text();
+	$('.type').on('click', 'button', function() {
+		inputs[9]= $(this).text();
+		console.log(inputs[9]);
+	})
+
+	/* ------------Begin devices ------------ */
+	/*only allow the ability to add a link if the user selects "contest" */
+	$('.device').on('click', 'button', function(){
+    	if($(this).text() == 'Specific User'){
+       		$('.deviceName').removeAttr('disabled');
+       		inputs[0]= '';
+       		console.log(inputs[0])
+    	}
+    	else {
+    		$('.deviceName').prop('disabled',true);
+    		//$('.linkAddress').val('');
+    		inputs[0]= $(this).text();
+    		console.log(inputs[0]);    	
+    		}
+	});
+	/* store links on blur */
+	$('.deviceName').on('blur', function() {
+		inputs[0]= $(this).val();
 		console.log(inputs[0]);
 	})
+	/*------------------End Devices ------------ */
+
 
 	$('.category').on('click', 'button', function() {
 		inputs[1]= $(this).text();
@@ -45,8 +67,8 @@ $(document).ready(function($) {
     		$('.linkAddress').prop('disabled',true);
     		//$('.linkAddress').val('');
     		inputs[5]= $(this).val();
-    		console.log(inputs[5])
-;    	}
+    		console.log(inputs[5]);    	
+    	}
 	});
 	/* store links on blur */
 	$('.linkAddress').on('blur', function() {
@@ -95,8 +117,11 @@ $(document).ready(function($) {
 		/* if having an expiration must include both date and time */
 		else if (($('.expirationDate').val() != '' && $('.expirationTime').val() == '') || ($('.expirationTime').val() != '' && $('.expirationDate').val() == '')) {
 			alert("An expiration rules requires both a date and time");
-
 		}
+		else if (inputs[0]== '') {
+			alert("Please enter a user name.")
+		}
+
 		else {
 			enter(inputs);
 			console.log(inputs);
@@ -119,7 +144,8 @@ var enter = function(inputs) {
     	link: inputs[5],
     	expirationDate: inputs[6],
     	expirationTime: inputs[7],
-    	appSecret: inputs[8]
+    	appSecret: inputs[8],
+    	type: inputs[9]
     } 
 
    var result = $.ajax({
