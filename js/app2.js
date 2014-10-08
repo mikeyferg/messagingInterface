@@ -7,6 +7,7 @@ $(document).ready(function($) {
 	    $(this).addClass("active").siblings().removeClass("active");
 	});
 
+	/* message type */
 	$('.type').on('click', 'button', function() {
 		inputs[9]= $(this).text();
 		console.log(inputs[9]);
@@ -29,8 +30,8 @@ $(document).ready(function($) {
 	});
 	/* store links on blur */
 	$('.deviceName').on('blur', function() {
-		inputs[0]= $(this).val();
-		console.log(inputs[0]);
+		inputs[10]= $(this).val();
+		console.log(inputs[10]);
 	})
 	/*------------------End Devices ------------ */
 
@@ -98,7 +99,9 @@ $(document).ready(function($) {
 	/* ----------End add and remove active states from buttons----------- */
 
 	/*  Call datepick and timepicker functions */
-	$('.datepicker').datepicker();
+	$('.datepicker').datepicker({
+		autoclose: true
+	});
 	$('.time').clockpicker({
 		donetext: 'Select',
 		twelvehour: true
@@ -111,6 +114,14 @@ $(document).ready(function($) {
 			alert("Message Head and Body required.  Obviously");
 		}
 
+		else if (inputs[9] === undefined) {
+			alert("Please select inApp only or inApp and Push.")
+		}
+
+		else if (inputs[1] === undefined) {
+			alert("Message type is required.")
+		}
+
 		else if (inputs[5] === undefined) {
 			alert("A contest link requires a contest link");
 		}
@@ -118,15 +129,19 @@ $(document).ready(function($) {
 		else if (($('.expirationDate').val() != '' && $('.expirationTime').val() == '') || ($('.expirationTime').val() != '' && $('.expirationDate').val() == '')) {
 			alert("An expiration rules requires both a date and time");
 		}
-		else if (inputs[0]== '') {
+		else if (inputs[10]== '') {
 			alert("Please enter a user name.")
 		}
 
 		else {
 			enter(inputs);
 			console.log(inputs);
+			$(this).attr("disabled", true);
 		}	
 	})
+
+
+
 
 }); 
 
@@ -137,6 +152,7 @@ var enter = function(inputs) {
 
    var request = {
     	deviceType: inputs[0],
+    	userList: inputs[10],
     	category: inputs[1],
     	messageHeader: inputs[2],
     	messageBody: inputs[3],
@@ -162,10 +178,10 @@ var enter = function(inputs) {
 
 	}) */
 	    complete: function(result) {
+	    	$(".enter button").attr("disabled", false);
 	        if (result.status == "200") {
 		      	$('#main').hide();
-				$('.confirmation').show();
-		    	 
+				$('.confirmation').show(); 
         	} 
         	else {
 	           alert('An error has occurred');
